@@ -1,0 +1,8 @@
+[flake8]
+ignore=D100,D104,D301,W503,W504,A003
+per-file-ignores =
+    tests/*:D100,D101,D102,D103,D104,D105,D106,D107
+max-line-length=88
+inline-quotes="
+import-order-style=pep8
+application-package-names=eviex,tests
