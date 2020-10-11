@@ -1,0 +1,24 @@
+language: python
+
+stages:
+  - lint
+  - test
+
+jobs:
+  include:
+  - stage: Lint
+    name: "Style check"
+    python: "3.8"
+    script: flake8 --statistics
+  - stage: Test
+    name: "Unittest - Python 3.6"
+    script: pytest
+  - name: "Unittest - Python 3.7"
+    script: pytest
+  - name: "Unittest - Python 3.8"
+    script: pytest
+    
+before_install:
+  - pip install poetry
+install:
+  - poetry install
