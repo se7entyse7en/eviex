@@ -12,10 +12,13 @@ jobs:
     script: flake8 --statistics
   - stage: Test
     name: "Unittest - Python 3.6"
+    python: "3.6"
     script: pytest
   - name: "Unittest - Python 3.7"
+    python: "3.7"
     script: pytest
   - name: "Unittest - Python 3.8"
+    python: "3.8"
     script: pytest
     
 before_install:
