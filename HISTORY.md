@@ -2,8 +2,16 @@
 
 ## Unreleased
 
+### Changed
+
+- Changed minimum `python` version required from `3.6` to `3.6.1` due to `pandas`
+
 ### Added
 
+- Added base `Indexer` and `MemoryIndexer` with customizable range of layer levels
+- Added `pandas` and `numpy` as dependencies
+- [test] Added tests for `MemoryIndexer`
+- [test] Added testing coverage on CI
 - [internal] Added Makefile with targets for version bump and publishing
 - [internal] Improved pyproject.toml by adding more metadata (license, readme, repository)
 - [internal] Added bumpversion with corresponding configuration
