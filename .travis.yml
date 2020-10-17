@@ -13,13 +13,13 @@ jobs:
   - stage: Test
     name: "Unittest - Python 3.6"
     python: "3.6"
-    script: pytest
+    script: pytest -vv --cov eviex tests/
   - name: "Unittest - Python 3.7"
     python: "3.7"
-    script: pytest
+    script: pytest -vv --cov eviex tests/
   - name: "Unittest - Python 3.8"
     python: "3.8"
-    script: pytest
+    script: pytest -vv --cov eviex tests/
     
 before_install:
   - pip install poetry
