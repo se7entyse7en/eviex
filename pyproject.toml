@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "eviex"
-version = "0.0.0"
+version = "0.1.0"
 description = "EVents Inverted indEX"
 license = "Apache-2.0"
 authors = ["Lou Marvin Caraig <loumarvincaraig@gmail.com>"]
