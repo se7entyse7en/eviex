@@ -43,7 +43,7 @@ jobs:
       - set +e
     script:
       - set -e
-      - current_version=v$(bumpversion --dry-run --list patch | grep current_version | cut -c 17-)
+      - current_version=$(bumpversion --dry-run --list patch | grep current_version | cut -c 17-)
       - latest_tag=$(git describe --tags --abbrev=0)
       - if [ "${current_version}" != "${latest_tag}" ]; then
           echo "Found new version ${current_version}!";
