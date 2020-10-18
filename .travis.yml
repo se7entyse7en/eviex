@@ -3,6 +3,11 @@ branches:
   only:
   - master
 
+cache:
+  directories:
+    - "$HOME/.cache/pip"
+    - "$HOME/.cache/pypoetry"
+
 stages:
   - Lint
   - Test
