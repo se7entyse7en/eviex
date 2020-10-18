@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [v0.1.0 - 2020-10-18](https://github.com/se7entyse7en/eviex/compare/v0.0.0...v0.1.0)
+
 ### Changed
 
 - Changed minimum `python` version required from `3.6` to `3.6.1` due to `pandas`
