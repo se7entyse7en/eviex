@@ -1,8 +1,13 @@
 language: python
+branches:
+  only:
+  - master
 
 stages:
-  - lint
-  - test
+  - Lint
+  - Test
+  - name: Publish
+    if: branch = master AND type != pull_request
 
 jobs:
   include:
@@ -20,6 +25,28 @@ jobs:
   - name: "Unittest - Python 3.8"
     python: "3.8"
     script: pytest -vv --cov eviex tests/
+  - stage: Publish
+    name: "Tag and publish"
+    python: "3.8"
+    before_script:
+      - set -e
+      - git config --global user.name "${GIT_USER}"
+      - git config --global user.email "${GIT_EMAIL}"
+      - poetry config pypi-token.pypi "${PYPI_TOKEN}"
+      - set +e
+    script:
+      - set -e
+      - current_version=v$(bumpversion --dry-run --list patch | grep current_version | cut -c 17-)
+      - latest_tag=$(git describe --tags --abbrev=0)
+      - if [ "${current_version}" != "${latest_tag}" ]; then
+          echo "Found new version ${current_version}!"
+          git tag -a "v${current_version}" -m "Version ${current_version}";
+          git push origin --tags;
+          poetry publish --build;
+        else
+          echo "No new version to tag and publish found."
+        fi
+      - set +e
     
 before_install:
   - pip install poetry

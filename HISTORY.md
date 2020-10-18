@@ -15,6 +15,7 @@
 - [internal] Added Makefile with targets for version bump and publishing
 - [internal] Improved pyproject.toml by adding more metadata (license, readme, repository)
 - [internal] Added bumpversion with corresponding configuration
+- [internal] Automated tagging and publishing to pypi through CI
 
 ### Fixed
 
