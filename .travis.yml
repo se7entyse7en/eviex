@@ -3,6 +3,11 @@ branches:
   only:
   - master
 
+cache:
+  directories:
+    - "$HOME/.cache/pip"
+    - "$HOME/.cache/pypoetry"
+
 stages:
   - Lint
   - Test
@@ -39,12 +44,12 @@ jobs:
       - current_version=v$(bumpversion --dry-run --list patch | grep current_version | cut -c 17-)
       - latest_tag=$(git describe --tags --abbrev=0)
       - if [ "${current_version}" != "${latest_tag}" ]; then
-          echo "Found new version ${current_version}!"
+          echo "Found new version ${current_version}!";
           git tag -a "v${current_version}" -m "Version ${current_version}";
           git push origin --tags;
           poetry publish --build;
         else
-          echo "No new version to tag and publish found."
+          echo "No new version to tag and publish found.";
         fi
       - set +e
     
